@@ -7,14 +7,15 @@ import Testimonials from "../components/homepage/Testimonials";
 import Newsletter from "../components/homepage/Newsletter";
 import Team from "../components/homepage/Team";
 import OurPartners from "../components/homepage/OurPartners";
-import BlogPost from "../components/homepage/BlogPost";
 import JoinUs from "../components/homepage/JoinUs";
+import BookingSection from "../components/homepage/BookingSection";
 
 const page = () => {
   return (
     <div>
       <HeroSection />
       <AboutUs />
+      <BookingSection />
       <ProgramOverview />
       <Events />
       <Testimonials />

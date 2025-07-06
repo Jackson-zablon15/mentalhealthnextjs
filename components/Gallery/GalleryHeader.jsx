@@ -1,12 +1,11 @@
 import React from 'react';
-import galleryBackground from '../../assets/galleryBackground.webp';
 
 const GalleryHeader = () => {
   return (
     <section 
       className="relative min-h-[60vh] flex items-center justify-center"
       style={{
-        backgroundImage: `url("${galleryBackground}")`,
+        backgroundImage: `url("/assets/galleryBackground.webp")`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed'

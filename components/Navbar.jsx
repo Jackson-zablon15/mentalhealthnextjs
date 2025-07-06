@@ -39,11 +39,11 @@ const Navbar = () => {
               About
             </Link>
             <Link
-              href="/blog"
+              href="/gallery"
               className="nav-link font-medium"
               style={{ color: "#FFFFFF", paddingTop: "8px" }}
             >
-              Blog
+              Gallery
             </Link>
             <Link
               href="/events"
@@ -127,35 +127,35 @@ const Navbar = () => {
             >
               Home
             </Link>
-            <a
+            <Link
               href="/about"
               className="nav-link font-medium"
               style={{ color: "#FFFFFF" }}
             >
               About
-            </a>
-            <a
-              href="/blog"
+            </Link>
+            <Link
+              href="/gallery"
               className="nav-link font-medium"
               style={{ color: "#FFFFFF" }}
             >
-              Blog
-            </a>
-            <a
+              Gallery
+            </Link>
+            <Link
               href="/events"
               className="nav-link font-medium"
               style={{ color: "#FFFFFF" }}
             >
               Events
-            </a>
-            <a
+            </Link>
+            <Link
               href="/contact"
               className="nav-link font-medium"
               style={{ color: "#FFFFFF" }}
             >
               Contact Us
-            </a>
-            <a
+            </Link>
+            <Link
               href="/"
               className="nav-link font-medium flex items-center justify-center"
               style={{
@@ -168,7 +168,7 @@ const Navbar = () => {
               }}
             >
               Donate
-            </a>
+            </Link>
           </div>
         )}
       </div>
