@@ -23,10 +23,7 @@ const HeroSection = () => {
     <section
       className="relative min-h-[80vh] flex items-center justify-center"
       style={{
-        backgroundImage: heroImages[current]
-          ? `url("${heroImages[current]}")`
-          : "none",
-        backgroundColor: "var(--soft-white)",
+        backgroundImage: `url("${heroImages[current]}")`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         transition: "background-image 1s ease-in-out",
