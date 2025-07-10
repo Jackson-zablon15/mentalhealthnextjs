@@ -1,10 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import EventCard from './EventCard';
 import { eventsData } from '../../data/eventsData';
+import { createClient } from "contentful";
+
 
 const UpcomingEventList = () => {
   const [selectedMonth, setSelectedMonth] = useState('all');
   const [selectedType, setSelectedType] = useState('all');
+  const [photos, setPhotos] = useState(null);
+
+  useEffect(() => {
+    const getitems = async () => {
+      const client = createClient({
+        // This is the space ID. A space is like a project folder in Contentful terms
+        space: "d4h4jy8mnviv",
+        // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
+        accessToken: "4sF9kJ1Y5bmXLw1zsD1d0jE4NuXPPeG2l0Z9tSuca_Q",
+      });
+
+      const response = await client.getEntries({ content_type: "events" });
+      console.log(response.items);
+      setPhotos(response.items);
+    };
+    getitems();
+  }, []);
+
+  console.log('photos')
 
   // Get unique months and types for filtering
   const months = ['all', ...Array.from(new Set(eventsData.map(event => event.date.month)))];
