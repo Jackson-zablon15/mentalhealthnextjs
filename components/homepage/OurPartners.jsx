@@ -5,7 +5,14 @@ const partners = [
     name: "Muhimbili University of Health and Allied Sciences (MUHAS)",
     logo: '/assets/muhas-logo.png',
   },
-  { name: "Mirembe Hospital", logo: '/assets/mirembe-logo.png' },
+  {
+     name: "Mirembe National Mental Hospital",
+    logo: '/assets/mirembe-logo.png' 
+  },
+  {
+     name: "Dental Smile",
+    logo: '/assets/dentalSmileLogo.png' 
+  },
 ];
 
 const OurPartners = () => (
