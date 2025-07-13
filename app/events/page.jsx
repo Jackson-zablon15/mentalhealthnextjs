@@ -6,7 +6,7 @@ import CallToActionSection from "../../components/Events/CallToActionSection";
 import { createClient } from "contentful";
 
 const Events = () => {
-  const [photos, setPhotos] = useState(null);
+  const [data, setData] = useState(null);
 
   useEffect(() => {
     const getitems = async () => {
@@ -19,15 +19,15 @@ const Events = () => {
 
       const response = await client.getEntries({ content_type: "events" });
       console.log(response.items);
-      setPhotos(response.items);
+      setData(response.items);
     };
     getitems();
   }, []);
 
   return (
     <>
-      <EventPageHeader />
-      <OrganizedEventList />
+      <EventPageHeader data={data} />
+      <OrganizedEventList data={data} /> 
       <CallToActionSection />
     </>
   );

@@ -1,6 +1,8 @@
 import React from 'react';
+import CountUp from 'react-countup';
 
-const GalleryHeader = () => {
+
+const GalleryHeader = ({data}) => {
   return (
     <section 
       className="relative min-h-[60vh] flex items-center justify-center"
@@ -42,15 +44,19 @@ const GalleryHeader = () => {
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12">
           <div className="text-center">
-            <div className="text-3xl font-bold mb-2" style={{color: 'var(--deep-red)'}}>12+</div>
-            <div className="text-sm" style={{color: 'var(--soft-white)'}}>Events Captured</div>
+            <div className="text-3xl font-bold mb-2" style={{color: 'var(--deep-red)'}}>
+              <CountUp end={data && data.length}/> <span>+</span>
+            </div>
+            <div className="text-sm" style={{color: 'var(--soft-white)'}}>Events Albams</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold mb-2" style={{color: 'var(--deep-red)'}}>500+</div>
+            <div className="text-3xl font-bold mb-2" style={{color: 'var(--deep-red)'}}>
+            <CountUp end={100}/> <span>+</span>
+            </div>
             <div className="text-sm" style={{color: 'var(--soft-white)'}}>Photos Shared</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold mb-2" style={{color: 'var(--deep-red)'}}>10</div>
+            <div className="text-3xl font-bold mb-2" style={{color: 'var(--deep-red)'}}>5</div>
             <div className="text-sm" style={{color: 'var(--soft-white)'}}>Categories</div>
           </div>
           <div className="text-center">

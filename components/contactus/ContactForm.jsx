@@ -15,6 +15,8 @@ const ContactForm = () => {
       ...prev,
       [name]: value
     }));
+
+    
   };
 
   const handleSubmit = (e) => {

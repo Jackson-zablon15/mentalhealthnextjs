@@ -20,7 +20,7 @@ const ContactInfo = () => {
         </svg>
       ),
       title: "Call Us",
-      content: "+255 123 456 789",
+      content: "+255 758 758 153",
       color: "var(--deep-red)"
     },
     {
@@ -30,7 +30,7 @@ const ContactInfo = () => {
         </svg>
       ),
       title: "Email Us",
-      content: "info@mentalhealthafrica.org",
+      content: "mentalhealthhubafrica@gmail.com",
       color: "var(--deep-red)"
     }
   ];

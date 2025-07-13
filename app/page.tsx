@@ -22,7 +22,6 @@ const page = () => {
       <Team />
       <OurPartners />
       <JoinUs />
-      <Newsletter />
     </div>
   );
 };

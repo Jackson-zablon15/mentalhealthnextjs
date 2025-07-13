@@ -1,13 +1,13 @@
 import React from 'react';
 import GalleryCard from './GalleryCard';
 
-const GalleryGrid = ({ photos, viewMode, onPhotoClick }) => {
+const GalleryGrid = ({ data, viewMode, onPhotoClick }) => {
   if (viewMode === 'masonry') {
     return (
       <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
-        {photos.map((photo) => (
-          <div key={photo.id} className="break-inside-avoid mb-6">
-            <GalleryCard photo={photo} onClick={() => onPhotoClick(photo)} />
+        { data && data.map((item, index) => (
+          <div key={index} className="break-inside-avoid mb-6">
+            <GalleryCard data={item} onClick={() => onPhotoClick(photo)} />
           </div>
         ))}
       </div>
@@ -16,9 +16,9 @@ const GalleryGrid = ({ photos, viewMode, onPhotoClick }) => {
 
   // Grid layout
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-      {photos.map((photo) => (
-        <GalleryCard key={photo.id} photo={photo} onClick={() => onPhotoClick(photo)} />
+    <div className="flex flex-wrap items-start gap-4">
+      {data && data.map((item, index) => (
+        <GalleryCard key={index} data={item} onClick={() => onPhotoClick(photo)} />
       ))}
     </div>
   );
