@@ -26,6 +26,7 @@ const Navbar = () => {
           <div className="hidden md:flex space-x-6 items-center pb-1">
             <Link
               href="/"
+              onClick={() => setMenuOpen(false)}
               className="nav-link font-medium"
               style={{ color: "#FFFFFF", paddingTop: "8px" }}
             >
@@ -33,6 +34,7 @@ const Navbar = () => {
             </Link>
             <Link
               href="/about"
+              onClick={() => setMenuOpen(false)}
               className="nav-link font-medium"
               style={{ color: "#FFFFFF", paddingTop: "8px" }}
             >
@@ -40,6 +42,7 @@ const Navbar = () => {
             </Link>
             <Link
               href="/gallery"
+              onClick={() => setMenuOpen(false)}
               className="nav-link font-medium"
               style={{ color: "#FFFFFF", paddingTop: "8px" }}
             >
@@ -47,6 +50,7 @@ const Navbar = () => {
             </Link>
             <Link
               href="/events"
+              onClick={() => setMenuOpen(false)}
               className="nav-link font-medium"
               style={{ color: "#FFFFFF", paddingTop: "8px" }}
             >
@@ -54,6 +58,7 @@ const Navbar = () => {
             </Link>
             <Link
               href="/contacts"
+              onClick={() => setMenuOpen(false)}
               className="nav-link font-medium"
               style={{ color: "#FFFFFF", paddingTop: "8px" }}
             >
