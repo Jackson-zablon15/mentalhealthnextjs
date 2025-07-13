@@ -8,33 +8,21 @@ import emailjs from "@emailjs/browser";
 const ContactUs = () => {
   const [messageSend, setMessageSend] = useState(false);
   const { register, handleSubmit, reset } = useForm();
+  const [registered, setRegistered] = useState(false);
+  const [submiting, setSubmiting] = useState(false);
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleFormSubmit = (data, e) => {
-    e.preventDefault()
-    console.log("handle form");
+  const onSubmit = async (formData, e) => {
+    const { name, email, phone, message } = formData
+    setSubmiting(true);
     emailjs
-      .sendForm("service_4kdyr3m", "template_0m28fhq", e.target, {
+      .sendForm("service_be6qg9y", "template_1kzcx9k", e.target, {
         publicKey: "MrKtDiM4rOW05oIyz",
       })
       .then(
         () => {
           console.log("SUCCESS!");
           reset();
+          setSubmiting(false);
         },
         (error) => {
           console.log("FAILED...", error);
@@ -61,7 +49,7 @@ const ContactUs = () => {
           </div>
 
           <form
-            onSubmit={handleFormSubmit}
+            onSubmit={handleSubmit(onSubmit)}
             className="max-w-2xl mx-auto space-y-6"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -77,12 +65,11 @@ const ContactUs = () => {
                   type="text"
                   id="name"
                   name="name"
-                  value={formData.name}
-                  onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--deep-red)] focus:border-transparent transition-colors"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg outline-none"
                   placeholder="Your full name"
                   aria-label="Enter your full name"
+                  {...register("name")}
                 />
               </div>
 
@@ -98,12 +85,11 @@ const ContactUs = () => {
                   type="email"
                   id="email"
                   name="email"
-                  value={formData.email}
-                  onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--deep-red)] focus:border-transparent transition-colors"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg outline-none"
                   placeholder="your.email@example.com"
                   aria-label="Enter your email address"
+                  {...register("email")}
                 />
               </div>
             </div>
@@ -120,11 +106,10 @@ const ContactUs = () => {
                 type="tel"
                 id="phone"
                 name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--deep-red)] focus:border-transparent transition-colors"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg outline-none"
                 placeholder="+255 123 456 789"
                 aria-label="Enter your phone number"
+                {...register("phone")}
               />
             </div>
 
@@ -139,23 +124,22 @@ const ContactUs = () => {
               <textarea
                 id="message"
                 name="message"
-                value={formData.message}
-                onChange={handleChange}
                 required
                 rows="6"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--deep-red)] focus:border-transparent transition-colors resize-vertical"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg outline-none"
                 placeholder="Tell us how we can help you..."
                 aria-label="Enter your message"
+                {...register("message")}
               />
             </div>
 
             <div className="text-center">
               <button
                 type="submit"
-                className="inline-block px-6 py-4 rounded-lg font-bold text-md bg-[var(--deep-red)] text-white shadow-lg hover:bg-[var(--grayish-blue)] transition-colors duration-200 focus:ring-2 focus:ring-[var(--deep-red)] focus:ring-offset-2"
+                className="inline-block outline-none px-6 py-4 rounded-lg font-bold text-md bg-[var(--deep-red)] text-white shadow-lg transition-colors duration-200 focus:ring-2 focus:ring-[var(--deep-red)] focus:ring-offset-2"
                 aria-label="Send message"
               >
-                Send Message
+                {submiting ? "processing..." : "send"}
               </button>
             </div>
           </form>
@@ -167,3 +151,7 @@ const ContactUs = () => {
 };
 
 export default ContactUs;
+
+/*
+
+*/

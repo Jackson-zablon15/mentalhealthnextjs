@@ -149,7 +149,7 @@ const Navbar = () => {
               Events
             </Link>
             <Link
-              href="/contact"
+              href="/contacts"
               className="nav-link font-medium"
               style={{ color: "#FFFFFF" }}
             >

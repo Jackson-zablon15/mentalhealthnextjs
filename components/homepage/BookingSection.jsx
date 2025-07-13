@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import DateSelect from '../Booking/DateSelect';
+import emailjs from "@emailjs/browser";
 
 const BookingSection = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -59,20 +60,24 @@ const BookingSection = () => {
       .replace(/'/g, '&#x27;');
   };
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data, e) => {
     // Sanitize all data before submission
-    const sanitizedData = {
-      fullName: sanitizeName(data.fullName),
-      email: sanitizeEmail(data.email),
-      phone: sanitizePhone(data.phone),
-      date: data.date,
-      sessionType: data.sessionType,
-      message: sanitizeMessage(data.message)
-    };
-    
+      await emailjs
+      .sendForm("service_be6qg9y", "template_1kzcx9k", e.target, {
+        publicKey: "MrKtDiM4rOW05oIyz",
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!");
+          reset();
+          setIsSubmitted(false);
+        },
+        (error) => {
+          console.log("FAILED...", error);
+        }
+      );
+  
     console.log('Original form data:', data);
-    console.log('Sanitized form data:', sanitizedData);
-    console.log('Current step when submitting:', currentStep);
     setIsSubmitted(true);
     reset();
     setCurrentStep(1);

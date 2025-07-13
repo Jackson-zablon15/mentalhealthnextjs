@@ -23,7 +23,7 @@ const AboutUs = () => {
           </div>
         </div>
         <div className="flex-1 flex justify-center md:justify-end md:pl-16">
-          <img src={'/assets/aboutUs.jpg'} alt="About Mental Health Africa" className="w-56 h-56 object-cover rounded-full shadow-lg" />
+          <img src={'/assets/aboutUs.jpg'} alt="About Mental Health Africa" className="w-56 h-56 md:w-90 md:h-90 object-cover rounded-full shadow-lg" />
         </div>
       </div>
     </section>
