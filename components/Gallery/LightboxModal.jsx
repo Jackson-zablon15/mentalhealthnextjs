@@ -106,9 +106,9 @@ const LightboxModal = ({ photo, isOpen, onClose, onPrevious, onNext, hasPrevious
 
         {/* Image Only */}
         <div className="flex flex-col items-center justify-center w-full h-full">
-          <img 
-            src={'/assets/galleryDemo.jpg'}
-            alt={photo.title}
+          <img
+            src={photo?.fields?.photo?.fields?.file?.url ? photo.fields.photo.fields.file.url : '/assets/galleryDemo.jpg'}
+            alt={photo?.fields?.title || 'photo'}
             className="max-h-[80vh] w-auto object-contain rounded-lg shadow-lg mx-auto"
           />
           {/* Optionally show title or date below image */}
