@@ -26,6 +26,7 @@ const Navbar = () => {
           <div className="hidden md:flex space-x-6 items-center pb-1">
             <Link
               href="/"
+              onClick={() => setMenuOpen(false)}
               className="nav-link font-medium"
               style={{ color: "#FFFFFF", paddingTop: "8px" }}
             >
@@ -33,6 +34,7 @@ const Navbar = () => {
             </Link>
             <Link
               href="/about"
+              onClick={() => setMenuOpen(false)}
               className="nav-link font-medium"
               style={{ color: "#FFFFFF", paddingTop: "8px" }}
             >
@@ -40,6 +42,7 @@ const Navbar = () => {
             </Link>
             <Link
               href="/gallery"
+              onClick={() => setMenuOpen(false)}
               className="nav-link font-medium"
               style={{ color: "#FFFFFF", paddingTop: "8px" }}
             >
@@ -47,6 +50,7 @@ const Navbar = () => {
             </Link>
             <Link
               href="/events"
+              onClick={() => setMenuOpen(false)}
               className="nav-link font-medium"
               style={{ color: "#FFFFFF", paddingTop: "8px" }}
             >
@@ -54,6 +58,7 @@ const Navbar = () => {
             </Link>
             <Link
               href="/contacts"
+              onClick={() => setMenuOpen(false)}
               className="nav-link font-medium"
               style={{ color: "#FFFFFF", paddingTop: "8px" }}
             >
@@ -119,9 +124,10 @@ const Navbar = () => {
         </div>
         {/* Mobile menu */}
         {menuOpen && (
-          <div className="md:hidden bg-[#13252D] px-4 py-4 rounded-b shadow-lg absolute left-0 right-0 top-20 z-40 flex flex-col space-y-4">
+          <div className="md:hidden bg-[#13252D] px-4 py-4 rounded-b shadow-lg absolute left-0 right-0 top-20 z-50 flex flex-col space-y-4">
             <Link
               href="/"
+              onClick={() => setMenuOpen(false)}
               className="nav-link font-medium"
               style={{ color: "#FFFFFF" }}
             >
@@ -129,6 +135,7 @@ const Navbar = () => {
             </Link>
             <Link
               href="/about"
+              onClick={() => setMenuOpen(false)}
               className="nav-link font-medium"
               style={{ color: "#FFFFFF" }}
             >
@@ -136,6 +143,7 @@ const Navbar = () => {
             </Link>
             <Link
               href="/gallery"
+              onClick={() => setMenuOpen(false)}
               className="nav-link font-medium"
               style={{ color: "#FFFFFF" }}
             >
@@ -143,6 +151,7 @@ const Navbar = () => {
             </Link>
             <Link
               href="/events"
+              onClick={() => setMenuOpen(false)}
               className="nav-link font-medium"
               style={{ color: "#FFFFFF" }}
             >
@@ -150,6 +159,7 @@ const Navbar = () => {
             </Link>
             <Link
               href="/contacts"
+              onClick={() => setMenuOpen(false)}
               className="nav-link font-medium"
               style={{ color: "#FFFFFF" }}
             >

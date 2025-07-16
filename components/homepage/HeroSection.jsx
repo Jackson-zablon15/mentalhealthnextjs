@@ -27,16 +27,14 @@ const HeroSection = () => {
           src={heroImages[current]}
           alt="Hero Background"
           fill
-          priority
           style={{
             position: "absolute",
             top: 0,
             left: 0,
-            width: "100%",
+            width: "100%", 
             height: "100%",
             objectFit: "cover",
-            transition: "opacity 1s ease-in-out",
-            opacity: loaded ? 1 : 0,
+            transition: "transform 1s ease-in-out",
           }}
           onLoad={() => setLoaded(true)}
         />
