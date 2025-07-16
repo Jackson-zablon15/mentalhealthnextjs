@@ -3,31 +3,31 @@ import React from 'react';
 const programs = [
   {
     icon: (
-      <svg className="w-10 h-10 mb-3" fill="none" stroke="var(--deep-red)" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3" strokeLinecap="round" strokeLinejoin="round"/></svg>
+      <svg className="w-10 h-10 mb-3" fill="none" stroke="var(--deep-red)" strokeWidth="2" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" strokeLinecap="round" strokeLinejoin="round"/></svg>
     ),
-    title: 'Digital Detox',
-    desc: 'Workshops and resources to help youth manage screen time and digital stress.'
+    title: 'Safe Space Talks',
+    desc: 'We create safe, non-judgmental spaces for youth and students to open up, learn, and connect around mental health challenges.'
   },
   {
     icon: (
-      <svg className="w-10 h-10 mb-3" fill="none" stroke="var(--deep-red)" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round"/></svg>
+      <svg className="w-10 h-10 mb-3" fill="none" stroke="var(--deep-red)" strokeWidth="2" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" strokeLinecap="round" strokeLinejoin="round"/></svg>
     ),
-    title: 'Awareness Campaigns',
-    desc: 'Community outreach to break stigma and spread mental health awareness.'
+    title: 'Corporate Trainings',
+    desc: 'We partner with organizations to provide mental health and wellness training for staff and management.'
   },
   {
     icon: (
-      <svg className="w-10 h-10 mb-3" fill="none" stroke="var(--deep-red)" strokeWidth="2" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M16 3v4M8 3v4" strokeLinecap="round" strokeLinejoin="round"/></svg>
+      <svg className="w-10 h-10 mb-3" fill="none" stroke="var(--deep-red)" strokeWidth="2" viewBox="0 0 24 24"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" strokeLinecap="round" strokeLinejoin="round"/></svg>
     ),
-    title: 'School Mental Talks',
-    desc: 'Interactive sessions in schools to educate and support students and teachers.'
+    title: 'Online Sessions',
+    desc: 'Through live streams and webinars, we reach wide audiences with educational content on mental health topics.'
   },
   {
     icon: (
-      <svg className="w-10 h-10 mb-3" fill="none" stroke="var(--deep-red)" strokeWidth="2" viewBox="0 0 24 24"><path d="M17 20h5v-2a4 4 0 0 0-4-4h-1"/><circle cx="9" cy="7" r="4"/><path d="M9 11a4 4 0 0 0-4 4v2h8v-2a4 4 0 0 0-4-4z"/></svg>
+      <svg className="w-10 h-10 mb-3" fill="none" stroke="var(--deep-red)" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" strokeLinecap="round" strokeLinejoin="round"/></svg>
     ),
-    title: 'Youth Clubs',
-    desc: 'Peer-led clubs fostering safe spaces for youth to share and grow together.'
+    title: 'Counseling Sessions',
+    desc: 'We provide one-on-one and group counseling sessions with professional therapists and psychologists.'
   },
 ];
 

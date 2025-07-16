@@ -4,9 +4,9 @@ import React from "react";
 import IntroSection from "../../components/aboutus/IntroSection";
 import OrganizationDescription from "../../components/aboutus/OrganizationDescription";
 import MissionVision from "../../components/aboutus/MissionVision";
+import WhatWeDo from "../../components/aboutus/WhatWeDo";
 
 // Shared components from homepage
-import ProgramOverview from "../../components/homepage/ProgramOverview";
 import Team from "../../components/homepage/Team";
 import JoinUs from "../../components/homepage/JoinUs";
 
@@ -16,7 +16,7 @@ const About = () => {
       <IntroSection />
       <OrganizationDescription />
       <MissionVision />
-      <ProgramOverview />
+      <WhatWeDo />
       <Team />
       <JoinUs />
     </>
