@@ -27,7 +27,6 @@ const HeroSection = () => {
           src={heroImages[current]}
           alt="Hero Background"
           fill
-          priority
           style={{
             position: "absolute",
             top: 0,
