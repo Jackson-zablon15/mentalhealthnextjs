@@ -1,47 +1,41 @@
 'use client'
 import React, { useState } from 'react';
+import { eventsData } from '../../data/eventsData';
+import Link from 'next/link';
 
-const events = [
-  {
-    date: { day: '24', month: 'JUL', year: '2025', time: '8:00 AM' },
-    type: 'SPORTS AND GAMES',
-    title: 'International Self-care Day',
-    subtitle: 'Move, Laugh & Connect',
-    details: 'A fun-filled morning featuring team sports, mindfulness games, and laughter challenges to promote self-care through physical and emotional wellness.'
-  },
-  {
-    date: { day: '1', month: 'AUG', year: '2025', time: '8:30 AM' },
-    type: 'OUTREACH',
-    title: 'Suicide Prevention Month',
-    subtitle: 'Hope Beyond the Silence',
-    details: 'Our team will visit schools, markets, and local hubs to distribute materials, provide on-spot counseling, and encourage open conversations about mental health and suicide prevention.'
-  },
-  {
-    date: { day: '10', month: 'SEP', year: '2025', time: '8:00 AM' },
-    type: 'POSTERS',
-    title: 'World Suicide Prevention Day',
-    subtitle: 'Voices That Matter',
-    details: 'A poster campaign across schools and public spaces featuring real stories, bold messages, and actionable steps to support those struggling with suicidal thoughts.'
-  },
-  {
-    date: { day: '5', month: 'OCT', year: '2025', time: '8:00 AM' },
-    type: 'PRISONER VISIT',
-    title: 'National Depression Screening Day',
-    subtitle: 'Restoring Dignity and Hope',
-    details: 'A dedicated outreach at correctional facilities to offer free depression screening, counseling, and support materials to inmates, aiming to promote healing and mental resilience.'
-  },
-  {
-    date: { day: '6', month: 'OCT', year: '2025', time: '8:00 AM' },
-    type: 'POSTERS',
-    title: 'Mental Illness Awareness Day',
-    subtitle: 'Awareness Starts with You',
-    details: 'A powerful poster installation campaign that highlights common mental illnesses, debunks myths, and shares contact info for free community mental health resources.'
-  },
-];
-
+const getUpcomingEvents = () => {
+  const now = new Date();
+  // Convert event date to JS Date and filter for upcoming
+  return eventsData
+    .filter(event => {
+      const eventDate = new Date(`${event.date.year}-${event.date.month}-01T${event.date.time}`);
+      // Use month string to month number
+      const monthMap = {
+        JAN: 0, FEB: 1, MAR: 2, APR: 3, MAY: 4, JUN: 5, JUL: 6, AUG: 7, SEP: 8, OCT: 9, NOV: 10, DEC: 11
+      };
+      eventDate.setMonth(monthMap[event.date.month]);
+      eventDate.setDate(Number(event.date.day));
+      return eventDate >= now;
+    })
+    .sort((a, b) => {
+      // Sort by date ascending
+      const monthMap = {
+        JAN: 0, FEB: 1, MAR: 2, APR: 3, MAY: 4, JUN: 5, JUL: 6, AUG: 7, SEP: 8, OCT: 9, NOV: 10, DEC: 11
+      };
+      const dateA = new Date(`${a.date.year}-${a.date.month}-01T${a.date.time}`);
+      dateA.setMonth(monthMap[a.date.month]);
+      dateA.setDate(Number(a.date.day));
+      const dateB = new Date(`${b.date.year}-${b.date.month}-01T${b.date.time}`);
+      dateB.setMonth(monthMap[b.date.month]);
+      dateB.setDate(Number(b.date.day));
+      return dateA - dateB;
+    })
+    .slice(0, 5);
+};
 
 const Events = () => {
   const [openIdx, setOpenIdx] = useState(null);
+  const events = getUpcomingEvents();
   const handleToggle = idx => setOpenIdx(openIdx === idx ? null : idx);
 
   return (
@@ -65,15 +59,23 @@ const Events = () => {
                 <div className="flex flex-col flex-1">
                   <span className="uppercase text-xs font-semibold mb-1" style={{color: 'var(--grayish-blue)'}}>{event.type}</span>
                   <span className="font-bold text-base md:text-lg mb-1" style={{color: '#222'}}>{event.title}</span>
-                  <span className="text-xs md:text-sm" style={{color: '#666'}}>{event.subtitle}</span>
+                  <span className="text-xs md:text-sm" style={{color: '#666'}}>{event.subtitle || event.description}</span>
                 </div>
-                <div className="ml-auto">
+                <div className="ml-auto flex items-center gap-2">
                   <svg className={`w-6 h-6 transition-transform duration-200 ${openIdx === idx ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                  <Link href="/events" passHref legacyBehavior>
+                    <a
+                      className="ml-2 px-4 py-2 rounded font-medium text-sm transition bg-[var(--grayish-blue)] text-white hover:bg-[var(--deep-red)]"
+                      onClick={e => e.stopPropagation()}
+                    >
+                      Learn More
+                    </a>
+                  </Link>
                 </div>
               </div>
               {openIdx === idx && (
                 <div className="mt-4 text-gray-700 border-t pt-4 text-sm">
-                  {event.details}
+                  {event.details || event.description}
                 </div>
               )}
             </div>

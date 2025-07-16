@@ -9,7 +9,7 @@ const IntroSection = () => {
             About Us
           </span>
         </div>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold " style={{color: 'var(--deep-red)'}}>
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold " style={{color: 'var(--deep-red)'}}>
           Transforming Mental Health in Africa
         </h1>
       </div>

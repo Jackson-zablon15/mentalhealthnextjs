@@ -60,7 +60,7 @@ const Navbar = () => {
               Contact Us
             </Link>
             <Link
-              href="/"
+              href="/donate"
               className="nav-link font-medium flex items-center justify-center"
               style={{
                 background: "#D72638",
@@ -156,7 +156,7 @@ const Navbar = () => {
               Contact Us
             </Link>
             <Link
-              href="/"
+              href="/donate"
               className="nav-link font-medium flex items-center justify-center"
               style={{
                 background: "#D72638",

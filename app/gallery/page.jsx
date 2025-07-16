@@ -4,7 +4,6 @@ import GalleryHeader from "../../components/Gallery/GalleryHeader";
 import GalleryFilters from "../../components/Gallery/GalleryFilters";
 import GalleryGrid from "../../components/Gallery/GalleryGrid";
 import LightboxModal from "../../components/Gallery/LightboxModal";
-import GalleryCallToAction from "../../components/Gallery/GalleryCallToAction";
 import { galleryData } from "../../data/galleryData";
 import { createClient } from "contentful";
 import Image from "next/image";
@@ -121,9 +120,6 @@ const Gallery = () => {
          <GalleryGrid data={data} />
         </div>
       </section>
-
-      {/* Call to Action */}
-      <GalleryCallToAction />
 
       {/* Lightbox Modal */}
       <LightboxModal
