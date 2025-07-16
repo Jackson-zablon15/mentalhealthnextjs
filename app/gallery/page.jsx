@@ -40,40 +40,38 @@ const Gallery = () => {
 
   // Filter photos based on selected criteria
   const filteredPhotos = useMemo(() => {
-    return galleryData.filter((photo) => {
+    if (!data) return [];
+    return data.filter((item) => {
+      const fields = item.fields || {};
       // Category filter
-      if (selectedCategory !== "all" && photo.category !== selectedCategory) {
+      if (selectedCategory !== "all" && fields.category !== selectedCategory) {
         return false;
       }
-
       // Year filter
       if (selectedYear !== "all") {
-        const photoYear = new Date(photo.date).getFullYear().toString();
+        const photoYear = fields.date ? new Date(fields.date).getFullYear().toString() : '';
         if (photoYear !== selectedYear) {
           return false;
         }
       }
-
       // Search filter
       if (searchQuery) {
         const query = searchQuery.toLowerCase();
         const searchableText = [
-          photo.title,
-          photo.location,
-          photo.description,
-          ...photo.tags,
+          fields.title,
+          fields.location,
+          fields.description,
+          ...(fields.tags || []),
         ]
           .join(" ")
           .toLowerCase();
-
         if (!searchableText.includes(query)) {
           return false;
         }
       }
-
       return true;
     });
-  }, [selectedCategory, selectedYear, searchQuery]);
+  }, [data, selectedCategory, selectedYear, searchQuery]);
 
   // Handle photo click to open lightbox
   const handlePhotoClick = (photo) => {
@@ -84,7 +82,7 @@ const Gallery = () => {
   // Handle lightbox navigation
   const handlePrevious = () => {
     const currentIndex = filteredPhotos.findIndex(
-      (photo) => photo.id === selectedPhoto.id
+      (photo) => photo.sys?.id === selectedPhoto?.sys?.id
     );
     const previousIndex =
       currentIndex > 0 ? currentIndex - 1 : filteredPhotos.length - 1;
@@ -93,7 +91,7 @@ const Gallery = () => {
 
   const handleNext = () => {
     const currentIndex = filteredPhotos.findIndex(
-      (photo) => photo.id === selectedPhoto.id
+      (photo) => photo.sys?.id === selectedPhoto?.sys?.id
     );
     const nextIndex =
       currentIndex < filteredPhotos.length - 1 ? currentIndex + 1 : 0;
@@ -117,7 +115,7 @@ const Gallery = () => {
         <div className="max-w-7xl mx-auto px-4"> 
           
 
-         <GalleryGrid data={data} />
+         <GalleryGrid data={filteredPhotos} onPhotoClick={handlePhotoClick} />
         </div>
       </section>
 

@@ -6,8 +6,8 @@ const GalleryGrid = ({ data, viewMode, onPhotoClick }) => {
     return (
       <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6 mx-auto">
         { data && data.map((item, index) => (
-          <div key={index} className="break-inside-avoid mb-6">
-            <GalleryCard data={item} onClick={() => onPhotoClick(photo)} />
+          <div key={item.sys?.id || index} className="break-inside-avoid mb-6">
+            <GalleryCard data={item} onClick={() => onPhotoClick(item)} />
           </div>
         ))}
       </div>
@@ -18,7 +18,7 @@ const GalleryGrid = ({ data, viewMode, onPhotoClick }) => {
   return (
     <div className="flex flex-wrap items-start gap-4 justify-center">
       {data && data.map((item, index) => (
-        <GalleryCard key={index} data={item} onClick={() => onPhotoClick(photo)} />
+        <GalleryCard key={item.sys?.id || index} data={item} onClick={() => onPhotoClick(item)} />
       ))}
     </div>
   );
