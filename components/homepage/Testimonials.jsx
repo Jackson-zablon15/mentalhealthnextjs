@@ -85,12 +85,7 @@ const Testimonials = () => {
 
           {/* Testimonial Content */}
           <div className="flex flex-col items-center text-center flex-1 min-w-[250px] max-w-2xl px-4">
-            <img
-              src={testimonials[current].photo}
-              alt={testimonials[current].name}
-              className="w-24 h-24 rounded-full object-cover mb-4 border-4"
-              style={{ borderColor: "var(--grayish-blue)" }}
-            />
+            {/* Removed image */}
             <p
               className="italic mb-2 text-lg text-center"
               style={{ color: "var(--soft-white)" }}
@@ -98,7 +93,7 @@ const Testimonials = () => {
               &quot;{testimonials[current].quote}&quot;
             </p>
             <span
-              className="font-semibold mt-2"
+              className="font-semibold mt-4"
               style={{ color: "var(--deep-red)" }}
             >
               {testimonials[current].name}

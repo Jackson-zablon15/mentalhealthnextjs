@@ -2,9 +2,9 @@ import React from 'react';
 
 
 const teamMembers = [
-  { name: 'Glory Livingstone', title: 'Founder & CEO', photo: '/assets/gloryLivingstone.jpg' },
+  { name: 'Glory Livingstone', title: 'Founder & CEO', photo: '/assets/gloryLivingstoneTeamPicture.jpg' },
   { name: 'Easter Philimon', title: 'General Secretary', photo: '/assets/easterPhilimon.jpg' },
-  { name: 'Samwely Mgina', title: 'Project Coordinator', photo: '/assets/samwelyMgina.jpg' },
+  { name: 'Empress Samwely', title: 'Project Coordinator', photo: '/assets/samwelyMgina.jpg' },
   { name: 'Daudi Elia', title: 'Project Coordinator', photo: '/assets/daudiElia.jpg' },
   { name: 'Ikunda Thomasi', title: 'Treasurer', photo: '/assets/ikundaThomas.jpg' },
   { name: 'Anold David', title: 'Publicity Coordinator', photo: '/assets/anoldDavid.jpg' },
