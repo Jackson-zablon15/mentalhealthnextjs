@@ -28,6 +28,14 @@ export const metadata: Metadata = {
     "mental health awareness",
   ],
   creator: "aptech",
+  other: {
+    'application/ld+json': JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "url": "https://mentalhealthafrica.org",
+      "logo": "/assets/NewMentalLogo.png"
+    }),
+  },
 };
 
 export default function RootLayout({
