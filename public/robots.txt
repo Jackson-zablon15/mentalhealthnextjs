@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.mentalhealthafr.org
+
+# Sitemaps
+Sitemap: https://www.mentalhealthafr.org/sitemap.xml
