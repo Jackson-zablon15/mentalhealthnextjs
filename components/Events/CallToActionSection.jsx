@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { eventsData } from "../../data/eventsData";
 import EventModal from "./EventModal";
 import Link from "next/link";
 
@@ -31,37 +30,7 @@ const CallToActionSection = () => {
     );
   };
 
-  // Get current or next upcoming event
-  const getCurrentOrNextEvent = () => {
-    const currentDate = new Date();
 
-    // First, try to find a current event (within 7 days)
-    const currentEvent = eventsData.find((event) => {
-      const eventDate = getDateValue(event);
-      const daysDiff = Math.floor(
-        (eventDate - currentDate) / (1000 * 60 * 60 * 24)
-      );
-      return daysDiff >= -7 && daysDiff <= 7;
-    });
-
-    if (currentEvent) {
-      return currentEvent;
-    }
-
-    // If no current event, find the next upcoming event
-    const upcomingEvents = eventsData.filter((event) => {
-      const eventDate = getDateValue(event);
-      return eventDate > currentDate;
-    });
-
-    if (upcomingEvents.length > 0) {
-      // Sort by date and return the earliest upcoming event
-      upcomingEvents.sort((a, b) => getDateValue(a) - getDateValue(b));
-      return upcomingEvents[0];
-    }
-
-    return null;
-  };
 
   const handleJoinProgram = () => {
     const event = getCurrentOrNextEvent();
@@ -76,7 +45,6 @@ const CallToActionSection = () => {
     setSelectedEvent(null);
   };
 
-  const currentOrNextEvent = getCurrentOrNextEvent();
 
   return (
     <>
@@ -101,24 +69,7 @@ const CallToActionSection = () => {
 
             {/* CTA Button */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-              <button
-                onClick={handleJoinProgram}
-                className="px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 hover:scale-105"
-                style={{
-                  background: "var(--deep-red)",
-                  color: "var(--soft-white)",
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.opacity = "0.9";
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.opacity = "1";
-                }}
-              >
-                {currentOrNextEvent
-                  ? "Join Our Next Program"
-                  : "View All Events"}
-              </button>
+              
 
               <Link href="/contacts">
                 <button

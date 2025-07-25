@@ -1,10 +1,8 @@
 "use client";
 import React, { useState, useMemo, useEffect } from "react";
 import GalleryHeader from "../../components/Gallery/GalleryHeader";
-import GalleryFilters from "../../components/Gallery/GalleryFilters";
 import GalleryGrid from "../../components/Gallery/GalleryGrid";
 import LightboxModal from "../../components/Gallery/LightboxModal";
-import { galleryData } from "../../data/galleryData";
 import { createClient } from "contentful";
 import Image from "next/image";
 import GalleryCard from "../../components/Gallery/GalleryCard";
