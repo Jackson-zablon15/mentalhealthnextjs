@@ -11,7 +11,6 @@ const heroImages = [
 
 const HeroSection = () => {
   const [current, setCurrent] = useState(0);
-  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -36,10 +35,9 @@ const HeroSection = () => {
             objectFit: "cover",
             transition: "transform 1s ease-in-out",
           }}
-          onLoad={() => setLoaded(true)}
         />
       </div>
-      {loaded && (
+      {true && (
         <div className="relative z-10 text-center px-4 py-20 max-w-2xl mx-auto">
           <h1
             className="text-4xl md:text-5xl font-bold mb-4"

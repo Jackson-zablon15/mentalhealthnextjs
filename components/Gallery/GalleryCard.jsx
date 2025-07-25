@@ -120,10 +120,7 @@ const GalleryCard = ({ data, onClick }) => {
             </div>
           </div>
         )}
-        {/* Category Badge */}
-        <div className="absolute top-2 left-2 px-1 py-1 rounded-full text-xs font-bold text-white ">
-          {data.fields.category}
-        </div>
+       
         {/* View Icon */}
         <div className="absolute top-4 right-4 w-8 h-8 bg-white bg-opacity-90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <svg
@@ -151,68 +148,9 @@ const GalleryCard = ({ data, onClick }) => {
       {/* Content */}
       <div className="p-4 flex-1 flex flex-col justify-between">
         {/* Date */}
-        <div className="flex items-center gap-2 mb-2">
-          <svg
-            className="w-4 h-4"
-            style={{ color: "var(--deep-red)" }}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-            ></path>
-          </svg>
-          <span
-            className="text-sm font-medium"
-            style={{ color: "var(--grayish-blue)" }}
-          >
-            {formatDate(data.fields.date)}
-          </span>
-        </div>
-        {/* Title */}
-        <h3
-          className="text-lg font-bold mb-2 line-clamp-2"
-          style={{ color: "var(--charcoal-black)" }}
-        >
-          {data.fields.title}
-        </h3>
-        {/* Location */}
-        <div className="flex items-center gap-2 mb-3">
-          <svg
-            className="w-4 h-4"
-            style={{ color: "var(--grayish-blue)" }}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-            ></path>
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-            ></path>
-          </svg>
-          <span className="text-sm" style={{ color: "var(--grayish-blue)" }}>
-            {data.fields.location}
-          </span>
-        </div>
-        {/* Description */}
-        <div
-          className="text-sm text-gray-600 line-clamp-3 leading-relaxed"
-          style={{ color: "var(--charcoal-black)" }}
-        >
-          {documentToReactComponents(data.fields.description, options)}
-        </div>
+       
+     
+        
         {/* Tags */}
       </div>
     </div>
