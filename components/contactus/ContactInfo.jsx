@@ -10,7 +10,7 @@ const ContactInfo = () => {
         </svg>
       ),
       title: "Location",
-      content: "1234 Mind Street, Dar es Salaam",
+      content: "MUHAS, Dar es Salaam",
       color: "var(--deep-red)"
     },
     {
@@ -20,7 +20,7 @@ const ContactInfo = () => {
         </svg>
       ),
       title: "Call Us",
-      content: "+255 758 758 153",
+      content: "+255 776 938 316",
       color: "var(--deep-red)"
     },
     {
