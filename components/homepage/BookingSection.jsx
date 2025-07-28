@@ -63,8 +63,8 @@ const BookingSection = () => {
   const onSubmit = async (data, e) => {
     // Sanitize all data before submission
       await emailjs
-      .sendForm("service_be6qg9y", "template_1kzcx9k", e.target, {
-        publicKey: "MrKtDiM4rOW05oIyz",
+      .sendForm("service_9yzjm5r", "template_9s418lm", e.target, {
+        publicKey: "F86ujmwFwKqv8-CIT",
       })
       .then(
         () => {

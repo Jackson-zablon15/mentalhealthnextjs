@@ -161,7 +161,7 @@ const CallToActionSection = () => {
                     ></path>
                   </svg>
                   <span style={{ color: "var(--soft-white)" }}>
-                    mentalhealthafrica@gmail.com
+                    info@mentalhealthafr.org
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -180,7 +180,7 @@ const CallToActionSection = () => {
                     ></path>
                   </svg>
                   <span style={{ color: "var(--soft-white)" }}>
-                    +255 624 454 589
+                    +255 710 635 974
                   </span>
                 </div>
               </div>
