@@ -62,9 +62,10 @@ const BookingSection = () => {
 
   const onSubmit = async (data, e) => {
     // Sanitize all data before submission
+    console.log(data)
       await emailjs
-      .sendForm("service_9yzjm5r", "template_9s418lm", e.target, {
-        publicKey: "F86ujmwFwKqv8-CIT",
+      .send("service_9yzjm5r", "template_9s418lm", data, {
+        publicKey: "F86ujmwFwKqv8-ClT",
       })
       .then(
         () => {
@@ -128,7 +129,7 @@ const BookingSection = () => {
         case 'phone':
           const sanitized = sanitizePhone(value);
           const digitsOnly = sanitized.replace(/\+/g, '');
-          return digitsOnly.length >= 10 && digitsOnly.length <= 15 && /^[0-9]+$/.test(digitsOnly);
+          return digitsOnly.length >= 9 && digitsOnly.length <= 15 && /^[0-9]+$/.test(digitsOnly);
         case 'date':
           if (!value) return false;
           const selectedDate = new Date(value);
@@ -538,6 +539,7 @@ const BookingSection = () => {
                   })}
                   type="text"
                   id="fullName"
+                  name="fullName"
                   className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 transition-colors ${
                     errors.fullName 
                       ? 'border-red-500 focus:ring-red-200' 
@@ -578,6 +580,7 @@ const BookingSection = () => {
                       : 'border-gray-300 focus:ring-blue-200'
                   }`}
                   placeholder="Enter your email address"
+                  name="email"
                 />
                 {errors.email && (
                   <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
@@ -630,8 +633,8 @@ const BookingSection = () => {
                       validate: (value) => {
                         const sanitized = sanitizePhone(value);
                         const digitsOnly = sanitized.replace(/\+/g, '');
-                        if (digitsOnly.length < 10) {
-                          return 'Phone number must be at least 10 digits';
+                        if (digitsOnly.length < 9) {
+                          return 'Phone number must be at least 9 digits';
                         }
                         if (digitsOnly.length > 15) {
                           return 'Phone number must not exceed 15 digits';
@@ -643,6 +646,7 @@ const BookingSection = () => {
                       }
                     })}
                     type="tel"
+                    name="phone"
                     id="phone"
                     className={`w-full px-4 py-3 border-t border-b border-r rounded-r-lg focus:outline-none focus:ring-2 transition-colors h-12 ${
                       errors.phone 
@@ -703,6 +707,7 @@ const BookingSection = () => {
                         {...register('sessionType', { required: 'Please select a session type' })}
                         type="radio"
                         value={type.toLowerCase()}
+                        name="sessionType"
                         className="sr-only"
                       />
                       <div 
@@ -774,6 +779,7 @@ const BookingSection = () => {
                     }
                   })}
                   id="message"
+                  name="message"
                   rows="6"
                   className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 transition-colors resize-none ${
                     errors.message 

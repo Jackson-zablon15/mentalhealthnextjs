@@ -15,7 +15,7 @@ const ContactUs = () => {
     const { name, email, phone, message } = formData
     setSubmiting(true);
     emailjs
-      .sendForm("service_9yzjm5r", "template_raz7nfu", e.target, {
+      .send("service_9yzjm5r", "template_raz7nfu", data, {
         publicKey: "F86ujmwFwKqv8-CIT",
       })
       .then(
