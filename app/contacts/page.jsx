@@ -20,7 +20,7 @@ const ContactUs = () => {
       })
       .then(
         () => {
-          console.log("SUCCESS!");
+          console.log("information send successfully!");
           reset();
           setSubmiting(false);
         },
@@ -123,7 +123,7 @@ const ContactUs = () => {
               </label>
               <textarea
                 id="message"
-                name="message"
+                name="message" 
                 required
                 rows="6"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg outline-none"

@@ -78,7 +78,6 @@ const BookingSection = () => {
         }
       );
   
-    console.log('Original form data:', data);
     setIsSubmitted(true);
     reset();
     setCurrentStep(1);
