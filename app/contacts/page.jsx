@@ -15,8 +15,8 @@ const ContactUs = () => {
     const { name, email, phone, message } = formData
     setSubmiting(true);
     emailjs
-      .send("service_9yzjm5r", "template_raz7nfu", data, {
-        publicKey: "F86ujmwFwKqv8-CIT",
+      .send("service_9yzjm5r", process.env.EMAILJS_TEMPlEID_CONTACTUS, formData, {
+        publicKey: process.env.EMAILJS_PUBLICKEY,
       })
       .then(
         () => {
@@ -153,5 +153,63 @@ const ContactUs = () => {
 export default ContactUs;
 
 /*
+<div style="font-family: system-ui, sans-serif, Arial; font-size: 9px">
+
+<h1
+  style="
+    
+    "
+  
+  >A BOOKING SESSION  FROM {{fullName}}, tell: {{phone}}.   <span style="
+      font-style: : italic;                                          
+      color: black
+    "  >Kindly respond at your earliest convenience </span> </h1>
+
+  <h1 
+  style="
+      color: black;
+    "
+  
+  >A SESSION TYPE: {{sessionType}} </h1>
+  
+  
+  <div
+    style="
+      margin-top: 20px;
+      padding: 15px 0;
+      border-width: 1px 0;
+      border-style: dashed;
+      border-color: lightgrey;
+    "
+  >
+    <table role="presentation">
+      <tr>
+        <td style="vertical-align: top">
+          <div
+            style="
+              padding: 6px 10px;
+              margin: 0 10px;
+              background-color: aliceblue;
+              border-radius: 5px;
+              font-size: 26px;
+            "
+            role="img"
+          >
+            👤
+          </div>
+        </td>
+        <td style="vertical-align: top">
+          <div style="color: black; font-size: 16px">
+            <p>Name</p>
+             <p>{{fullName}}</p>
+          </div>
+
+            <p>Message</p>
+          <p style="color: darkred; font-size: 16px">{{message}}</p>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
 
 */

@@ -64,8 +64,8 @@ const BookingSection = () => {
     // Sanitize all data before submission
     console.log(data)
       await emailjs
-      .send("service_9yzjm5r", "template_9s418lm", data, {
-        publicKey: "F86ujmwFwKqv8-ClT",
+      .send("service_9yzjm5r", process.env.EMAILJS_TEMPlEID_BOOKINGFORM, data, {
+        publicKey: process.env.EMAILJS_PUBLICKEY,
       })
       .then(
         () => {
