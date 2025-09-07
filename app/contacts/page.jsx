@@ -154,63 +154,58 @@ const ContactUs = () => {
 export default ContactUs;
 
 /*
-<div style="font-family: system-ui, sans-serif, Arial; font-size: 9px">
+EMAILJS_PRIVATE_KEY=your-private-key
+EMAILJS_SERVICE_ID=your-service-id
+EMAILJS_TEMPLATE_ID=your-template-id
 
-<h1
-  style="
-    
-    "
-  
-  >A BOOKING SESSION  FROM {{fullName}}, tell: {{phone}}.   <span style="
-      font-style: : italic;                                          
-      color: black
-    "  >Kindly respond at your earliest convenience </span> </h1>
 
-  <h1 
-  style="
-      color: black;
-    "
-  
-  >A SESSION TYPE: {{sessionType}} </h1>
-  
-  
-  <div
-    style="
-      margin-top: 20px;
-      padding: 15px 0;
-      border-width: 1px 0;
-      border-style: dashed;
-      border-color: lightgrey;
-    "
-  >
-    <table role="presentation">
-      <tr>
-        <td style="vertical-align: top">
-          <div
-            style="
-              padding: 6px 10px;
-              margin: 0 10px;
-              background-color: aliceblue;
-              border-radius: 5px;
-              font-size: 26px;
-            "
-            role="img"
-          >
-            👤
-          </div>
-        </td>
-        <td style="vertical-align: top">
-          <div style="color: black; font-size: 16px">
-            <p>Name</p>
-             <p>{{fullName}}</p>
-          </div>
+export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).end(); // Method Not Allowed
+  }
 
-            <p>Message</p>
-          <p style="color: darkred; font-size: 16px">{{message}}</p>
-        </td>
-      </tr>
-    </table>
-  </div>
-</div>
+  const { name, email, message } = req.body;
+
+  try {
+    const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        service_id: process.env.EMAILJS_SERVICE_ID,
+        template_id: process.env.EMAILJS_TEMPLATE_ID,
+        user_id: process.env.EMAILJS_PRIVATE_KEY,
+        template_params: {
+          name,
+          email,
+          message,
+        },
+      }),
+    });
+
+    if (response.ok) {
+      return res.status(200).json({ message: 'Email sent successfully' });
+    } else {
+      return res.status(500).json({ message: 'Email sending failed' });
+    }
+  } catch (err) {
+    return res.status(500).json({ message: 'Server error', error: err });
+  }
+}
+
+
+const sendForm = async (formData) => {
+  const response = await fetch('/api/send-email', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData),
+  });
+
+  const result = await response.json();
+  console.log(result.message);
+};
 
 */
