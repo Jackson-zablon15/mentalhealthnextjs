@@ -16,8 +16,8 @@ const ContactUs = () => {
     setSubmiting(true);
     console.log(formData)
     emailjs
-      .send("service_7062lum", 'template_ge8rwyq', formData, {
-        publicKey: 'PyiDv1xjgqlnsB0mF',
+      .send(process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID, NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, formData, {
+        publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY, 
       })
       .then(
         () => {

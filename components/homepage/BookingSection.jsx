@@ -60,13 +60,13 @@ const BookingSection = () => {
       .replace(/'/g, '&#x27;');
   };
 
+  console.log()
   const onSubmit = async (data, e) => {
     // Sanitize all data before submission
-    console.log(data)
     console.log('data')
       await emailjs
-      .send("service_7062lum", 'template_f5monso', data, {
-        publicKey: 'PyiDv1xjgqlnsB0mF',
+      .send(process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID, NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, data, {
+        publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
       })
       .then(
         () => {
