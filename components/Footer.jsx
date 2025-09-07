@@ -47,7 +47,7 @@ const Footer = () => {
           <p>
             Email:{" "}
             <a href="mailto:info@mentalhealthafrica.org" className="underline">
-              info@mentalhealthafrica.org
+              info@mentalhealthafr.org
             </a>
           </p>
         </div>

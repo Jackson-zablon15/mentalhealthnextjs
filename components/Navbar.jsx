@@ -5,9 +5,19 @@ import React, { useState } from "react";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
+    <div
+      className="shadow-md sticky top-0 z-50 bg-white"
+    >
+    <div className="py-1">
+      <Link
+       href="mailto:info@mentalhealthafr.org"
+       className="hover:underline text-sm text-red-700 flex justify-center items-center"
+      >
+        <button className="cursor-pointer">info@mentalhealthafr.org</button>      
+      </Link>
+    </div>
     <nav
       style={{ background: "#13252D" }}
-      className="shadow-md sticky top-0 z-50"
     >
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
@@ -190,6 +200,7 @@ const Navbar = () => {
         }
       `}</style>
     </nav>
+    </div>
   );
 };
 

@@ -66,7 +66,7 @@ const Testimonials = () => {
           <button
             onClick={prevTestimonial}
             aria-label="Previous"
-            className="bg-white bg-opacity-70 rounded-full p-2 shadow hover:bg-opacity-100 transition"
+            className="bg-white bg-opacity-70 cursor-pointer rounded-full p-2 shadow hover:bg-opacity-100 transition"
           >
             <svg
               className="w-6 h-6 text-gray-700"
@@ -84,7 +84,7 @@ const Testimonials = () => {
           </button>
 
           {/* Testimonial Content */}
-          <div className="flex flex-col items-center text-center flex-1 min-w-[250px] max-w-2xl px-4">
+          <div className="flex flex-col items-center text-center flex-1 min-w-[200px] max-w-2xl px-0">
             {/* Removed image */}
             <p
               className="italic mb-2 text-lg text-center"
@@ -110,7 +110,7 @@ const Testimonials = () => {
           <button
             onClick={nextTestimonial}
             aria-label="Next"
-            className="bg-white bg-opacity-70 rounded-full p-2 shadow hover:bg-opacity-100 transition"
+            className="bg-white bg-opacity-70 cursor-pointer rounded-full p-2 shadow hover:bg-opacity-100 transition"
           >
             <svg
               className="w-6 h-6 text-gray-700"

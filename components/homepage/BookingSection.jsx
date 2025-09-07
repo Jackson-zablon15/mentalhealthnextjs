@@ -63,9 +63,10 @@ const BookingSection = () => {
   const onSubmit = async (data, e) => {
     // Sanitize all data before submission
     console.log(data)
+    console.log('data')
       await emailjs
-      .send("service_9yzjm5r", process.env.EMAILJS_TEMPlEID_BOOKINGFORM, data, {
-        publicKey: process.env.EMAILJS_PUBLICKEY,
+      .send("service_7062lum", 'template_f5monso', data, {
+        publicKey: 'PyiDv1xjgqlnsB0mF',
       })
       .then(
         () => {
@@ -595,45 +596,15 @@ const BookingSection = () => {
                   Phone Number *
                 </label>
                 <div className="flex">
-                  <div className="relative" style={{ minWidth: '100px' }}>
-                    <button
-                      type="button"
-                      className="flex items-center justify-between px-3 py-3 border border-gray-300 bg-gray-50 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-200 text-gray-700 w-full h-12"
-                      onClick={() => setShowDropdown((prev) => !prev)}
-                      tabIndex={0}
-                      style={{ minWidth: '100px', height: '48px' }}
-                    >
-                      <span className="mr-2 font-medium">{selectedCountry.code}</span>
-                      <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
-                    {showDropdown && (
-                      <div className="absolute left-0 z-10 mt-1 bg-white border border-gray-200 rounded shadow-lg max-h-60 overflow-y-auto" style={{ minWidth: '260px', maxHeight: '300px' }}>
-                        {countryCodes.map((country) => (
-                          <button
-                            type="button"
-                            key={country.code + '-' + country.name}
-                            className={`w-full text-left px-4 py-2 hover:bg-gray-100 ${country.code === selectedCountry.code ? 'bg-gray-100 font-semibold' : ''}`}
-                            onClick={() => {
-                              setSelectedCountry(country);
-                              setShowDropdown(false);
-                            }}
-                          >
-                            {country.name} ({country.code})
-                          </button>
-                        ))}
-                      </div>
-                    )}
-                  </div>
+                  
                   <input
                     {...register('phone', { 
                       required: 'Phone number is required',
                       validate: (value) => {
                         const sanitized = sanitizePhone(value);
                         const digitsOnly = sanitized.replace(/\+/g, '');
-                        if (digitsOnly.length < 9) {
-                          return 'Phone number must be at least 9 digits';
+                        if (digitsOnly.length < 10) {
+                          return 'Phone number must be at least 10 digits';
                         }
                         if (digitsOnly.length > 15) {
                           return 'Phone number must not exceed 15 digits';
@@ -652,7 +623,7 @@ const BookingSection = () => {
                         ? 'border-red-500 focus:ring-red-200' 
                         : 'border-gray-300 focus:ring-blue-200'
                     }`}
-                    placeholder="e.g., 712345678"
+                    placeholder="e.g., 0712345678"
                     value={watchedValues.phone || ''}
                     onChange={e => {
                       // Remove country code if user types it

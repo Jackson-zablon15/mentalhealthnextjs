@@ -14,9 +14,10 @@ const ContactUs = () => {
   const onSubmit = async (formData, e) => {
     const { name, email, phone, message } = formData
     setSubmiting(true);
+    console.log(formData)
     emailjs
-      .send("service_9yzjm5r", process.env.EMAILJS_TEMPlEID_CONTACTUS, formData, {
-        publicKey: process.env.EMAILJS_PUBLICKEY,
+      .send("service_7062lum", 'template_ge8rwyq', formData, {
+        publicKey: 'PyiDv1xjgqlnsB0mF',
       })
       .then(
         () => {
