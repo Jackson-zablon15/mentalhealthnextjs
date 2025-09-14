@@ -8,14 +8,7 @@ const Navbar = () => {
     <div
       className="shadow-md sticky top-0 z-50 bg-white"
     >
-    <div className="py-1">
-      <Link
-       href="mailto:info@mentalhealthafr.org"
-       className="hover:underline text-sm text-red-700 flex justify-center items-center"
-      >
-        <button className="cursor-pointer">info@mentalhealthafr.org</button>      
-      </Link>
-    </div>
+    
     <nav
       style={{ background: "#13252D" }}
     >
